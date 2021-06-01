@@ -17,9 +17,9 @@
 商品を先に注文できる
 
 ## 設計書
-ER図<https://app.diagrams.net/#G1V1wVcgojLYI0uI2nw1rDV8QS5eS4SkvD>
-テーブル定義書
-アプリケーション設計
+- ER図<https://app.diagrams.net/#G1V1wVcgojLYI0uI2nw1rDV8QS5eS4SkvD>
+- テーブル定義書
+- アプリケーション設計
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1HM8ztWabrNUTdBvWPoiSkwK1RMUEOA8oWYUCPDW1RLQ/edit#gid=0>
