@@ -19,7 +19,7 @@
 ## 設計書
 - ER図<https://app.diagrams.net/#G1V1wVcgojLYI0uI2nw1rDV8QS5eS4SkvD>
 - テーブル定義書<https://docs.google.com/spreadsheets/d/1SejN2PODDLunO8v0i_31F347Xd3cYDRW/edit#gid=1243549839>
-- アプリケーション設計
+- アプリケーション設計<https://docs.google.com/spreadsheets/d/1b06t975wiYlUnvqxJ2lUbPmIvIdBcrac10tvMfaQ0QM/edit#gid=363322110>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1HM8ztWabrNUTdBvWPoiSkwK1RMUEOA8oWYUCPDW1RLQ/edit#gid=0>
