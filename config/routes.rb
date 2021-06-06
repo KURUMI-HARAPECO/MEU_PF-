@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update] do
       resources :order_details, only: [:update]
     end
+    resources :shops, only: [:index, :show, :create, :edit, :update, :destroy]
   end
   devise_for :customers, controllers: {
     sessions: 'public/sessions',
