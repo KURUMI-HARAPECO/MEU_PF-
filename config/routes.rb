@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
 
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :items, except: [:index,:new,:create,:show,:edit,:update,:destroy]
+    resources :items, only: [:index,:new,:create,:show,:edit,:update,:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:index, :show, :update] do
       resources :order_details, only: [:update]
