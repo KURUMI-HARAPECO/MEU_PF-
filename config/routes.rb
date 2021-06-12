@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: {
-    sessions: 'admin/sessions',
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations',
   }
 
   namespace :admin do
-    # get 'admin' => 'homes#top', as: 'top'
-    root 'homes#top'
+    get 'admin' => 'homes#top', as: 'top'
+    # root 'homes#top'
     get 'search' => 'homes#search', as: 'search'
     get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
 
@@ -47,6 +48,7 @@ Rails.application.routes.draw do
     end
     resources :cart_items, only: [:index]
     resources :orders, only: [:new, :index, :create, :show]
+    # resources :customers, only: [:edit, :update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

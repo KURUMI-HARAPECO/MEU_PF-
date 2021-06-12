@@ -11,10 +11,9 @@
 			<tr>
 				<td><%= customer.id %></td>
 				<td><%= customer.full_name %></td>
-				<td><%= customer.full_name_kana %></td>
 				<td>
 					<% if customer.is_active? %>
-						<span class="text-active">有効</span>	
+						<span class="text-active">有効</span>
 					<% else %>
 						<span class="text-invalid">退会済み</span>
 					<% end %>
