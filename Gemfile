@@ -84,3 +84,9 @@ gem 'ransack'
 # 検索機能を実装するGem
 gem 'pry-byebug'
 # デバック機能を実装Gem
+
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
