@@ -82,9 +82,15 @@ gem 'bootstrap', '~> 4.5'
 # Bootstrapを導入するためのGem
 gem 'ransack'
 # 検索機能を実装するGem
-gem 'pry-byebug'
-# デバック機能を実装Gem
 
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # ここに移動
+  gem 'pry-byebug'
+  # デバック機能を実装Gem
+end
 
 gem 'dotenv-rails'
 group :production do
