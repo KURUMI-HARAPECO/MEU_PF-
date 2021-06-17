@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja" >
   <head>
     <title>MEU</title>
     <%= csrf_meta_tags %>
@@ -7,60 +7,68 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="product.css" rel="stylesheet">
   </head>
 
   <body>
-    <%# binding.pry %>
-    <% if admin_signed_in? %>
-      <header class="admin_header">
-        <div class="header-content">
-          <%= link_to 'NaganoCake', admin_top_path, class: "logo" %>
-          <ul class="flex">
-            <li class="nav-item"><%= link_to '商品一覧', admin_items_path %></li>
-            <li class="nav-item"><%= link_to '会員一覧', admin_customers_path %></li>
-            <li class="nav-item"><%= link_to '注文履歴一覧', admin_orders_path %></li>
-            <li class="nav-item"><%= link_to 'ジャンル管理', admin_genres_path %></li>
-            <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-          </ul>
-          <%= form_tag(admin_search_path, method: :get) do %>
-            <%= text_field_tag "search[content]", "", :placeholder =>"会員: 姓,名 / 商品: 商品名" %>
-            <%= select_tag "search[model]", options_for_select({ "会員" => "customer", "商品" => "item" }) %>
-            <%= select_tag "search[method]", options_for_select({ "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "perfect" }) %>
-            <%= submit_tag '検索', class: "btn btn-primary" %>
+
+    <header>
+      <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+          <%# binding.pry %>
+          <% if admin_signed_in? %>
+                  <%= link_to 'NaganoCake', admin_top_path, class: "logo" %>
+                  <%= link_to '商品一覧', admin_items_path %>
+                  <%= link_to '会員一覧', admin_customers_path %>
+                  <%= link_to '注文履歴一覧', admin_orders_path %>
+                  <%= link_to 'ジャンル管理', admin_genres_path %>
+                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+                  <%= form_tag(admin_search_path, method: :get) do %>
+                    <%= text_field_tag "search[content]", "", :placeholder =>"会員: 姓,名 / 商品: 商品名" %>
+                    <%= select_tag "search[model]", options_for_select({ "会員" => "customer", "商品" => "item" }) %>
+                    <%= select_tag "search[method]", options_for_select({ "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "perfect" }) %>
+                    <%= submit_tag '検索', class: "btn btn-primary" %>
+                  <% end %>
+          <% elsif customer_signed_in? %>
+                  <%= link_to 'NaganoCake', root_path, class: "logo" %>
+                  <p>ようこそ、<%= current_customer.full_name %>さん!</p>
+                  <%= link_to 'マイページ', mypage_path %>
+                  <%= link_to '商品一覧', items_path %>
+                  <%= link_to 'カート', carts_path %>
+                  <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %>
+          <% else %>
+                  <%= link_to 'MEU', root_path %>
+                  <%= link_to '商品一覧', items_path %>
+                  <%= link_to '新規登録', new_customer_registration_path %>
+                  <%= link_to 'ログイン', new_customer_session_path %>
           <% end %>
         </div>
-      </header>
+      </nav>
+    </header>
 
-    <% elsif customer_signed_in? %>
-      <header>
-        <div class="header-content">
-          <%= link_to 'NaganoCake', root_path, class: "logo" %>
-          <ul class="flex">
-            <p>ようこそ、<%= current_customer.full_name %>さん!</p>
-            <li class="nav-item"><%= link_to 'マイページ', mypage_path %></li>
-            <li class="nav-item"><%= link_to '商品一覧', items_path %></li>
-            <li class="nav-item"><%= link_to 'カート', carts_path %></li>
-            <li class="nav-item"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
-          </ul>
-        </div>
-      </header>
-    <% else %>
-      <header>
-        <div class="header-content">
-          <%= link_to 'NaganoCake', root_path, class: "logo" %>
-          <ul class="flex">
-            <li class="nav-item"><%= link_to '商品一覧', items_path %></li>
-            <li class="nav-item"><%= link_to '新規登録', new_customer_registration_path %></li>
-            <li class="nav-item"><%= link_to 'ログイン', new_customer_session_path %></li>
-          </ul>
-        </div>
-      </header>
-    <% end %>
-</nav>
-    <main>
-      <%= yield %>
-    </main>
+    <main><%= yield %></main>
 
-    <footer>Copyright © Infratop Inc. All Rights Reserved.</footer>
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <p>Copyright © Infratop Inc. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-8">
+            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <ul class="p-0 list-unstyled">
+              <li>
+                <a>会社概要</a>
+              </li>
+              <li>
+                <a>プライバシーポリシー</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
+
 </html>

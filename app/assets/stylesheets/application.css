@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
-header {
-  margin-bottom: 40px;
-  white-space: nowrap;
-  background-color: #777777
-}
+
+/*header {*/
+/*  margin-bottom: 40px;*/
+/*  white-space: nowrap;*/
+/*}*/
 
 body {
     min-height: 100vh;
