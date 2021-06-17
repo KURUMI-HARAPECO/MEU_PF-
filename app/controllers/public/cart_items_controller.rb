@@ -1,9 +1,9 @@
-class Public::CartsController < ApplicationController
+class Public::CartItemsController < ApplicationController
 before_action :authenticate_customer!
 before_action :set_cart_item, only: [:create, :update, :destroy]
 
   def index
-    @cart_items = current_customer.carts
+    @cart_items = current_customer.cart_items.includes(:item)
   end
 
   def create
@@ -47,5 +47,4 @@ before_action :set_cart_item, only: [:create, :update, :destroy]
     @item = Item.find(params[:item_id])
     @cart_item = current_customer.has_in_cart(@item)
   end
-
 end
