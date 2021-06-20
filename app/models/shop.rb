@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  belongs_to :shop_genre
+   belongs_to :shop_genre
 
   validates :name, presence: true
   validates :postal_code, presence: true
