@@ -19,6 +19,11 @@
 /*  white-space: nowrap;*/
 /*}*/
 
+header {
+  margin-bottom: 40px;
+  white-space: nowrap;
+}
+
 body {
     min-height: 100vh;
     position: relative;/*←相対位置*/
@@ -27,11 +32,8 @@ body {
 }
 
 footer {
-  background-color: #777777;
+  background-color: forestgreen;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
   width: 100%;
-}
-.nav-item {
-    margin-right: 15px;
 }

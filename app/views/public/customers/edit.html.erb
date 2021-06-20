@@ -15,11 +15,6 @@
 					<td><%= f.label :last_name, "(名)", class: "customer_name" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
 				</tr>
 				<tr>
-					<td>フリガナ</td>
-					<td><%= f.label :first_name_kana, "(セイ)" %> <%= f.text_field :first_name_kana, :placeholder =>"#{@customer.first_name_kana}" %></td>
-					<td><%= f.label :last_name_kana, "(メイ)" %> <%= f.text_field :last_name_kana, :placeholder =>"#{@customer.last_name_kana}" %></td>
-				</tr>
-				<tr>
 					<td><%= f.label :email, "メールアドレス" %></td>
 					<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@customer.email}" %></td>
 				</tr>

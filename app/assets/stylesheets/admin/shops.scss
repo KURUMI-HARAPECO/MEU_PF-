@@ -1,3 +1,78 @@
 // Place all the styles related to the admin/shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+*, *:hover {
+    box-sizing: border-box;
+}
+.container {
+    height: 100%;
+}
+.column {
+    width: 50%;
+    float: left;
+}
+.map {
+    background: #FEFEFE;
+    height: 100%;
+}
+.map_japan {
+    margin: 0px;
+    padding: 5%;
+}
+div {
+    display: block;
+}
+.list {
+    background: #303030;
+    height: 100%;
+}
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 5%;
+    padding-left: 10%;
+}
+.hokkaido {
+    color: #3886c8;
+}
+.tohoku {
+    color: #9fd8f6;
+}
+.tohoku {
+    color: #9fd8f6;
+}
+.kanto {
+    color: #d5e9ce;
+}
+.cyubu {
+    color: #6cbc65;
+}
+.kansai {
+    color: #fff798;
+}
+.cyugoku {
+    color: #fbcb89;
+}
+.shikoku {
+    color: #f39801;
+}
+.kyushu {
+    color: #e70012;
+}
+.okinawa {
+    color: #e70000;
+}
+script {
+    display: none;
+}
+
+element.style {
+    display: none;
+}

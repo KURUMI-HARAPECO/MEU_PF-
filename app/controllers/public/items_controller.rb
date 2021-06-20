@@ -19,6 +19,6 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.where_genre_active.find(params[:id])
     @genres = Genre.only_active
-    @cart_item = Cart.new
+    @cart_item = CartItem.new
   end
 end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'admin' => 'homes#top', as: 'top'
-    # root 'homes#top'
+
     get 'search' => 'homes#search', as: 'search'
     get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
 
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :order_details, only: [:update]
     end
     resources :shops, only: [:index, :show, :create, :edit, :update, :destroy]
+    resources :shop_genres, only: [:index, :create, :edit, :update]
   end
 
   devise_for :customers, controllers: {
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: 'about'
 
     get 'customers/mypage' => 'customers#show', as: 'mypage'
-    get 'customers/edit' => 'customers#edit', as: 'edit_information'
+    get 'customers/editt' => 'customers#edit', as: 'edit_information'
     patch 'customers' => 'customers#update', as: 'update_information'
     put 'customers/information' => 'customers#update'
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
@@ -42,11 +43,12 @@ Rails.application.routes.draw do
     get 'orders/confirm' => 'orders#error'
     get 'orders/complete' => 'orders#complete', as: 'complete'
 
+
     resources :shops, only: [:index, :show, :create, :update]
     resources :items, only: [:top,:index, :show] do
       resources :cart_items, only: [:create, :update, :destroy]
     end
-    resources :carts, only: [:index]
+    resources :cart_items, only: [:index]
     resources :orders, only: [:new, :index, :create, :show]
     # resources :customers, only: [:edit, :update]
   end

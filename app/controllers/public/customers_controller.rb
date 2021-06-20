@@ -12,7 +12,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to mypage_path, notice: '会員情報の更新が完了しました。'
     else
-      render :edit
+      redirect_to edit_information_path
     end
   end
 

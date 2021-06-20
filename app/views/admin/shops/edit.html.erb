@@ -1,0 +1,4 @@
+<section class="inner">
+	<h2 class="section-ttl"><%= @shop.name %>の編集</h2>
+  <%= render 'form', shop: @shop, url: admin_shop_path(@shop), submit: '更新' %>
+</section>
