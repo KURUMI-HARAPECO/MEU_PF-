@@ -5,6 +5,16 @@ class Admin::ShopsController < ApplicationController
   def index
     @shop = Shop.new
     @shops = Shop.all
+
+    @genres = ShopGenre.only_active
+    if params[:shop_genre_id]
+      @genre = @genres.find(params[:shop_genre_id])
+      all_shops = @genre.shops
+    else
+      all_shops = Shop.where_genre_active.includes(:shop_genre)
+    end
+    @shops = all_shops.page(params[:page]).per(12)
+    @all_shops_count = all_shops.count
   end
 
   def create
@@ -24,10 +34,8 @@ class Admin::ShopsController < ApplicationController
   end
 
   def update
+    @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      unless @shop.is_active
-        @shop.items.update_all(is_active: false)
-      end
       redirect_to admin_shops_path
     else
       render :edit
@@ -37,7 +45,7 @@ class Admin::ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:name, :postal_code, :address, :telephone_number)
+    params.require(:shop).permit(:name, :postal_code, :address, :telephone_number, :shop_genre_id)
   end
 
   def ensure_shop

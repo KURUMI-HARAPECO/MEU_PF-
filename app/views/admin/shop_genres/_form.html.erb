@@ -2,6 +2,8 @@
 	<%= render 'layouts/error_messages', resource: genre %>
 	<%= f.label :name, "ジャンル名:" %>
 	<%= f.text_field :name %>
+	<%= f.label :komoziname, "小英語ジャンル名:" %>
+	<%= f.text_field :komoziname %>
 	<%= f.radio_button :is_active, true %>
 	<%= f.label :is_active, "有効", class: "text-active" %>
 	<%= f.radio_button :is_active, false %>

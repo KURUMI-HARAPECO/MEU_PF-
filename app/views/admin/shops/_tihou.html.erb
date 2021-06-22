@@ -1,0 +1,3 @@
+<% shops.each do |shop| %>
+  <li><h4><%= link_to shop.shop_genre.name, admin_shops_path(shop_genre_id: shop.shop_genre_id) %></h4></li>
+<% end %>

@@ -1,0 +1,18 @@
+<table class="admin_items has_border">
+	<thead>
+		<tr>
+			<th>店舗名</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% shops.each do |shop| %>
+			<tr>
+				<td class="text-center"><%= shop.id %></td>
+				<td><%= link_to shop.name, admin_shop_path(shop), class: "underline" %></td>
+				<td><%= link_to "編集", edit_admin_shop_path(shop), class: "btn btn-success" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+

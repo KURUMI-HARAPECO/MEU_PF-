@@ -76,3 +76,9 @@ script {
 element.style {
     display: none;
 }
+
+.shop-name{
+  display: flex;
+  flex-wrap: wrap;
+  border: solid;
+}

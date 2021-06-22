@@ -34,7 +34,7 @@ class Admin::ShopGenresController < ApplicationController
   private
 
   def genre_params
-    params.require(:shop_genre).permit(:name, :is_active)
+    params.require(:shop_genre).permit(:name, :komoziname, :is_active)
   end
 
   def ensure_genre

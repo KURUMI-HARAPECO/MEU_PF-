@@ -27,7 +27,7 @@
 				</tr>
 				<tr>
 					<td>ジャンル</td>
-					<td><%= link_to @shop.genre.name, admin_shops_path(shop_genre_id: @shop.shop_genre_id), class: "underline" %></td>
+					<td><%= link_to @shop.shop_genre.name, admin_shops_path(shop_genre_id: @shop.shop_genre_id), class: "underline" %></td>
 				</tr>
 			</tbody>
 		</table>
