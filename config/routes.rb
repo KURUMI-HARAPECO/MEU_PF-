@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     get 'orders/confirm' => 'orders#error'
     get 'orders/complete' => 'orders#complete', as: 'complete'
 
-
+    resources :cart_items, only: [:create, :update, :destroy]
     resources :shops, only: [:index, :show, :create, :update]
     resources :items, only: [:top,:index, :show] do
       resources :cart_items, only: [:create, :update, :destroy]

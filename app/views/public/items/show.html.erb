@@ -34,17 +34,21 @@
 				<% if customer_signed_in? %>
 					<% cart_item = current_customer.has_in_cart(@item) %>
 					<% if cart_item %>
-						<%= form_for [@item, cart_item] do |f| %>
-							<p>こちらの商品は、既にカートに入っています。</p>
-							<%= f.select :amount, [*(1..10)], include_blank: "個数選択" %>
-							<%= f.submit "数量変更", class: 'btn btn-sm btn-success' %>
-						<% end %>
+
+			      <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+			        <%= f.hidden_field :item_id, :value => @item.id %>
+			          <%= f.select :amount, [["1", 1], ["2", 2], ["3", 3], ["4", 4]] , include_blank: "個数選択" %>
+			          <%= f.submit '変更',class: 'btn btn-sm btn-success' %>
+			      <% end %>
+
 					<% elsif @item.is_active? %>
-						<%= form_for [@item, @cart_item] do |f| %>
-							<p>数量を選択して下さい。</p>
-							<%= f.select :amount, [*(1..10)], include_blank: "個数選択" %>
-							<%= f.submit "カートに入れる", class: 'btn btn-sm btn-success' %>
-						<% end %>
+
+			      <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+			        <%= f.hidden_field :item_id, :value => @item.id %>
+			          <%= f.select :amount, [["1", 1], ["2", 2], ["3", 3], ["4", 4]] , include_blank: "個数選択" %>
+			          <%= f.submit 'カートに入れる',class: 'btn btn-sm btn-success' %>
+			      <% end %>
+
 					<% else %>
 						<p class="bold">こちらの商品は、現在販売停止中です。</p>
 					<% end %>
@@ -58,5 +62,3 @@
 
 	</div>
 </section>
-
-
