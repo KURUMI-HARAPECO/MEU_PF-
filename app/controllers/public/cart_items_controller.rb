@@ -1,100 +1,62 @@
 class Public::CartItemsController < ApplicationController
 before_action :authenticate_customer!
-# before_action :set_cart_item, only: [:create, :update, :destroy]
+before_action :set_cart_item, only: [:create, :update, :destroy]
 
-  # def index
-  #   @cart_items = current_customer.cart_items.includes(:item)
-  #   # @cart_items = current_customer.cart_items
-  # end
-
-  # def create
-  #   if @cart_item
-  #     new_amount = @cart_item.amount + cart_item_params[:amount]
-  #     @cart_item.update(amount: new_amount)
-  #     redirect_to cart_items_path
-  #   else
-  #     binding.pry
-  #     @cart_item = current_customer.cart_items.new(cart_item_params)
-  #     @cart_item.item_id = @item.id
-  #     if @cart_item.save
-  #       redirect_to cart_items_path
-  #     else
-  #       redirect_to root_path
-  #     end
-  #   end
-  # end
-
-  # def create1
-  #   @cart_item = CartItem.new(cart_item_params)
-  #   @cart_item.customer_id = current_customer.id
-  #   if @cart_item.save
-  #       redirect_to cart_items_path
-  #   else
-  #     redirect_to  controller: :shops, action: :show, id:  1
-  #   end
-  # end
-
-  # def update
-  #   @cart_item.update(cart_item_params) if @cart_item
-  #   redirect_to cart_items_path
-  # end
-
-  # def destroy
-  #   @cart_item.destroy if @cart_item
-  #   redirect_to cart_items_path
-  # end
-
-  # def destroy_all
-  #   current_customer.cart_items.destroy_all
-  #   redirect_to cart_items_path
-  # end
-
-  # private
-
-  # def cart_item_params
-  #   params.require(:cart_item).permit(:amount)
-  # end
-
-  # def set_cart_item
-  #   @item = Item.find(params[:item_id])
-  #   @cart_item = current_customer.has_in_cart(@item)
-  # end
   def index
-    @cart_items = current_customer.cart_items
-  end
-
-  def destroy
-    @cart_item = CartItem.find(params[:id])  # データ（レコード）を1件取得
-    @cart_item.destroy  # データ（レコード）を削除
-    redirect_to cart_items_path  # 投稿一覧画面へリダイレクト
-  end
-
-  def destroy_all
-    CartItem.destroy_all
-    redirect_to cart_items_path
+    @cart_items = current_customer.cart_items.includes(:item)
+    # @cart_items = current_customer.cart_items
   end
 
   def create
+    if @cart_item
+      new_amount = @cart_item.amount + cart_item_params[:amount]
+      @cart_item.update(amount: new_amount)
+      redirect_to cart_items_path
+    else
+      binding.pry
+      @cart_item = current_customer.cart_items.new(cart_item_params)
+      @cart_item.item_id = @item.id
+      if @cart_item.save
+        redirect_to cart_items_path
+      else
+        redirect_to root_path
+      end
+    end
+  end
+
+  def create1
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    if @cart_item.save!
+    if @cart_item.save
         redirect_to cart_items_path
     else
-      redirect_to  controller: :items, action: :show, id:  1
+      redirect_to  controller: :shops, action: :show, id:  1
     end
   end
 
   def update
-    cart_item = CartItem.find(params[:id])
-    if cart_item.update(cart_item_params)
-      redirect_to cart_items_path
-    else
-      redirect_to cart_items_path
-    end
+    @cart_item.update(cart_item_params) if @cart_item
+    redirect_to cart_items_path
+  end
+
+  def destroy
+    @cart_item.destroy if @cart_item
+    redirect_to cart_items_path
+  end
+
+  def destroy_all
+    current_customer.cart_items.destroy_all
+    redirect_to cart_items_path
   end
 
   private
+
   def cart_item_params
-    params.require(:cart_item).permit(:amount, :item_id, :customer_id)
+    params.require(:cart_item).permit(:amount)
+  end
+
+  def set_cart_item
+    @item = Item.find(params[:item_id])
+    @cart_item = current_customer.has_in_cart(@item)
   end
 end

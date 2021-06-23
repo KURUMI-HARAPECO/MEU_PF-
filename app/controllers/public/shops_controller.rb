@@ -1,6 +1,6 @@
 class Public::ShopsController < ApplicationController
   before_action :authenticate_customer!
-  before_action :ensure_shop, only: [:show, :edit, :update]
+  before_action :ensure_shop, only: [:show]
 
   def index
     @shops = Shop.all
@@ -17,8 +17,6 @@ class Public::ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
-    @cart_item = CartItem.new
   end
 
   private

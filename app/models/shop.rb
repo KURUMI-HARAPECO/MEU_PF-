@@ -1,5 +1,6 @@
 class Shop < ApplicationRecord
   belongs_to :shop_genre
+  # has_many :orders
   # has_many :cart_items, dependent: :destroy
 
   validates :name, presence: true

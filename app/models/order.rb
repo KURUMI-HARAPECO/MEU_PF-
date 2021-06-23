@@ -1,13 +1,15 @@
 class Order < ApplicationRecord
   belongs_to :customer
+  # belongs_to :shop
   has_many :order_details
   has_many :items, through: :order_details
 
-  validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
-  validates :destination, presence: true
   validates :name, presence: true
-  validates :shipping_cost, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
-  validates :grand_total, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
+  validates :payment_method, presence: true
+  validates :time, presence: true
+  validates :minute, presence: true
+  validates :total_payment, presence: true
+  # validates :grand_total, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
 
   # scope :ordered_today, -> { where(created_at: Constants::BEGINNING_OF_TODAY...Constants::BEGINNING_OF_TOMORROW) }
 
