@@ -13,7 +13,6 @@ before_action :set_cart_item, only: [:create, :update, :destroy]
       @cart_item.update(amount: new_amount)
       redirect_to cart_items_path
     else
-      binding.pry
       @cart_item = current_customer.cart_items.new(cart_item_params)
       @cart_item.item_id = @item.id
       if @cart_item.save

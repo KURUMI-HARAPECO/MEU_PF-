@@ -39,7 +39,6 @@
                   <%= link_to '商品一覧', items_path %>
                   <%= link_to '店舗一覧', shops_path %>
                   <%= link_to 'カート', cart_items_path %>
-                  <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, "data-confirm" => "カートを空にします。よろしいでしょうか？", class: "btn btn-danger" %>
                   <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %>
           <% else %>
                   <%= link_to 'MEU', root_path %>
@@ -53,7 +52,7 @@
     </header>
 
     <main>
-      <div class="container">
+      <!--<div class="container">-->
         <%= yield %>
       </div>
     </main>

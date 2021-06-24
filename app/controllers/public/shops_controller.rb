@@ -1,5 +1,4 @@
 class Public::ShopsController < ApplicationController
-  before_action :authenticate_customer!
   before_action :ensure_shop, only: [:show]
 
   def index

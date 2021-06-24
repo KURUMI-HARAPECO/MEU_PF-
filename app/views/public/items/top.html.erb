@@ -7,10 +7,32 @@
           このサイトは、ハンバーガー販売のECサイトになります。<br>
   				会員でない方も商品の閲覧はできますが、<br>
   				購入には会員登録が必要になります。</p>
-        <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+        <%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-secondary" %>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <% @genres.each do |genre| %>
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal"><%= genre.name %></h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>10 users included</li>
+              <li>2 GB of storage</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary"><%= link_to genre.name, items_path(genre_id: genre.id) %></button>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -28,19 +50,5 @@
 		</div>
 		<% end %>
 	</div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-    <% @genres.each do |genre| %>
-    <div class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-          <h2 class="display-5">
-        			<%= link_to genre.name, items_path(genre_id: genre.id) %>
-          </h2>
-          <p class="lead">And an even wittier subheading.</p>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-  	<% end %>
-  </div>
 
 </section>

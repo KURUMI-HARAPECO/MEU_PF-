@@ -18,10 +18,8 @@
 				<td><%= link_to @customer.full_name, admin_customer_path(@customer), class: "underline" %></td>
 			</tr>
 			<tr>
-				<td>配送先</td>
+				<td>受け渡し店舗</td>
 				<td>
-					〒<%= @order.postal_code %><br>
-					<%= @order.destination %><br>
 					<%= @order.name %>
 				</td>
 			</tr>
@@ -81,16 +79,8 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>送料</td>
-					<td><%= @order.shipping_cost %>円</td>
-				</tr>
-				<tr>
 					<td>商品合計</td>
 					<td><%= @order_details.sum(&:subtotal) %>円</td>
-				</tr>
-				<tr>
-					<td>総計</td>
-					<td class="bold"><%= @order.grand_total %>円</td>
 				</tr>
 			</tbody>
 		</table>

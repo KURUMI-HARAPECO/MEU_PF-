@@ -14,10 +14,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-        # binding.pry
     @order = current_customer.orders.new(order_params)
     if @order.save
-      redirect_to thanks_path
+      current_customer.cart_items.destroy_all
+      redirect_to complete_path
     else
       render :new
     end

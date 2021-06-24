@@ -16,8 +16,6 @@
 				<tr>
 					<td><%= order.created_at_jst.strftime('%Y/%m/%d') %></td>
 					<td>
-						〒<%= order.postal_code %><br>
-						<%= order.destination %><br>
 						<%= order.name %>
 					</td>
 					<td>
@@ -25,7 +23,6 @@
 							<p><%= item.name %></p>
 						<% end %>
 					</td>
-					<td><%= order.grand_total %></td>
 					<td class="text-center"><%= order.status_i18n %></td>
 					<td class="text-center">
 						<%= link_to "表示する", order_path(order), class: "btn btn-primary" %>
