@@ -2,6 +2,7 @@ class Public::ItemsController < ApplicationController
   def top
     @genres = Genre.only_active.includes(:items)
     @items = Item.recommended
+    @item = Item.page(params[:page]).per(4).order(created_at: :desc)
   end
 
   def index
@@ -12,7 +13,7 @@ class Public::ItemsController < ApplicationController
     else
       all_items = Item.where_genre_active.includes(:genre)
     end
-    @items = all_items.page(params[:page]).per(12)
+    @items = all_items.page(params[:page]).per(5)
     @all_items_count = all_items.count
   end
 

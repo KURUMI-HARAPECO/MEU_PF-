@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_092314) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
+    t.string "image_id"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -29,7 +29,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params) ? (redirect_to admin_item_path(@item)) : (render :edit)
+    @item.update(item_params) ? (redirect_to admin_items_path) : (render :edit)
   end
 
   private

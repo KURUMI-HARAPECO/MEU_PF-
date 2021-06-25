@@ -1,35 +1,34 @@
-<section class="inner">
-	<h2 class="section-ttl">店舗詳細</h2>
-	<div class="flex">
-		<table class="admin_item_info">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>店舗品名</td>
-					<td><%= @shop.name %></td>
-				</tr>
-				<tr>
-					<td>郵便番号</td>
-					<td><%= @shop.postal_code %></td>
-				</tr>
-				<tr>
-					<td>住所</td>
-					<td><%= @shop.address %></td>
-				</tr>
-				<tr>
-					<td>電話番号</td>
-					<td><%= @shop.telephone_number %></td>
-				</tr>
-				<tr>
-					<td>ジャンル</td>
-					<td><%= @shop.shop_genre.name %></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</section>
+<div class="shop_footer">
+	<section class="inner">
+		<div class="container">
+		<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+
+
+		<h2 class="section-ttl">店舗詳細</h2>
+		<div class="flex">
+
+			<div class="admin_item_info">
+
+						<h4>店舗品名</h4>
+						<p><%= @shop.name %></p>
+
+						<p>郵便番号</p>
+						<p><%= @shop.postal_code %></p>
+
+						<p>住所</p>
+						<p><%= @shop.address %></p>
+
+						<p>電話番号</p>
+						<p><%= @shop.telephone_number %></p>
+
+						<p>ジャンル</p>
+						<p><%= @shop.shop_genre.name %></p>
+
+       </div>
+			</div>
+		</div>
+	</section>
+</div>
+
+
+

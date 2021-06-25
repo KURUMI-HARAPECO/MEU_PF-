@@ -1,8 +1,8 @@
 <section class="wrapper flex">
 	<div class="content">
-  	<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  	<div class="position-relative overflow-hidden p-3 p-md-5 mb-3 text-center bg-light">
       <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 class="display-4 font-weight-normal">ようこそ、MEUへ!</h1>
+        <h1 class="display-4 font-weight-normal">ようこそ<br>MEUへ!</h1>
         <p class="lead font-weight-normal">
           このサイトは、ハンバーガー販売のECサイトになります。<br>
   				会員でない方も商品の閲覧はできますが、<br>
@@ -22,13 +22,7 @@
             <h4 class="my-0 font-weight-normal"><%= genre.name %></h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
-            </ul>
+            <img src="/assets/watermark.jpg" alt="" width="200" height="200">
             <button type="button" class="btn btn-lg btn-block btn-outline-primary"><%= link_to genre.name, items_path(genre_id: genre.id) %></button>
           </div>
         </div>
@@ -36,19 +30,46 @@
     </div>
   </div>
 
-	<h2 class="section-ttl">オススメ商品</h2>
-	<div class="items">
-		<% @items.each do |item| %>
-		<div class="item">
-			<%= link_to item_path(item) do %>
-			<div class="item">
-				<%= attachment_image_tag item, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %>
-				<h5><%= item.genre.name %></h5>
-				<p><%= item.name %></p>
-				<p><%= item.with_tax_price %>円</p>
-			<% end %>
-		</div>
-		<% end %>
-	</div>
+  <div class="container">
+    <h1 class="bg-info text-white">新着商品</h1>
+    <div class="card-deck mb-3 text-center">
+      <div class="row">
+          <% @item.each do |item| %>
+            <tr>
+              <div class="list-box ml-5">
+                <%= link_to item_path(item) do %>
+                <td><%= attachment_image_tag item, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %></td>
+                <div class="list-comment">
+                  <p><%= item.name %></p>
+                  <p><%= item.with_tax_price %>円</p>
+                </div>
+                <% end %>
+              </div>
+            </tr>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="bg-warning text-white">オススメ商品</h1>
+    <div class="card-deck mb-3 text-center">
+      <div class="row">
+          <% @items.each do |item| %>
+            <tr>
+              <div class="list-box ml-5">
+                <%= link_to item_path(item) do %>
+                <td><%= attachment_image_tag item, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %></td>
+                <div class="list-comment">
+                  <p><%= item.name %></p>
+                  <p><%= item.with_tax_price %>円</p>
+                </div>
+                <% end %>
+              </div>
+            </tr>
+          <% end %>
+      </div>
+    </div>
+  </div>
 
 </section>
