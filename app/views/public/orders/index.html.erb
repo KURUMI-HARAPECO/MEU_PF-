@@ -1,13 +1,12 @@
 <section class="inner">
+	<div class="shop_footer">
 	<h2 class="section-ttl">注文履歴一覧</h2>
 	<table class="orders has_border">
 		<thead>
 			<tr>
 				<th>注文日</th>
-				<th>配送先</th>
-				<th>注文商品</th>
+				<th>受け渡し店舗</th>
 				<th>支払金額</th>
-				<th>ステータス</th>
 				<th>注文詳細</th>
 			</tr>
 		</thead>
@@ -18,11 +17,6 @@
 					<td>
 						<%= order.name %>
 					</td>
-					<td>
-						<% order.items.each do |item| %>
-							<p><%= item.name %></p>
-						<% end %>
-					</td>
 					<td class="text-center"><%= order.status_i18n %></td>
 					<td class="text-center">
 						<%= link_to "表示する", order_path(order), class: "btn btn-primary" %>
@@ -32,4 +26,5 @@
 		</tbody>
 	</table>
 	<%= paginate @orders %>
+	</div>
 </section>

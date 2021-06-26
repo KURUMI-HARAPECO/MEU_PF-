@@ -1,4 +1,5 @@
 <section class="inner">
+	<div class="shop_footer">
 	<h2 class="section-ttl">注文情報入力</h2>
 	<% if flash[:error] %>
 		<div id="error_explanation">
@@ -26,6 +27,11 @@
      ["徳島店",36],["香川店",37],["愛媛店",38],["高知店",39],
      ["福岡店",40],["佐賀店",41],["長崎店",42],["熊本店",43],["大分店",44],["宮崎店",45],["鹿児島店",46],
      ["沖縄店",47]], include_blank: "-    " %>
+
+    <% @orders.each do |order| %>
+    <%= f.select order,"-  qqqq  " %>
+    <% end %>
+
 		<%= f.select :time, [*(10..20)], include_blank: "-    " %>
 		<%= f.label :time, "時" %>
 		<%= f.select :minute, [["00", 0],["10", 1], ["20", 2], ["30", 3], ["40", 4], ["50", 5]], include_blank: "-    " %>
@@ -34,4 +40,5 @@
 	  <p>時間を選択して下さい。</p>
 		<%= f.submit "注文確認画面に進む", class: "btn btn-primary submit_to_confirm_order" %>
 	<% end %>
+	</div>
 </section>

@@ -1,5 +1,5 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+	<div class="shop_footer">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "customers/shared/error_messages", resource: resource %>
 
@@ -41,3 +41,4 @@
 <p>アカウントを削除しますか？ <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>

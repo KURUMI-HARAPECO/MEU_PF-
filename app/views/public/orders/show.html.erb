@@ -1,4 +1,5 @@
 <section class="inner">
+	<div class="shop_footer">
 	<h2 class="section-ttl">注文履歴詳細</h2>
 	<table class="order_info mb3 has_border">
 		<caption class="fz18 text-left">注文情報</caption>
@@ -14,9 +15,12 @@
 				<td><%= @order.created_at_jst.strftime('%Y/%m/%d') %></td>
 			</tr>
 			<tr>
-				<td>配送先</td>
+				<td>受け渡し店舗</td>
 				<td>
+
+					<%#= if @order.name == 1 %>
 					<%= @order.name %>
+
 				</td>
 			</tr>
 			<tr>
@@ -71,5 +75,6 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
 	</div>
 </section>

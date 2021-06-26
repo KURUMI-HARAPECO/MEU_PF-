@@ -1,4 +1,5 @@
 <section class="inner">
+	<div class="shop_footer">
   <% if flash[:notice] %>
     <p class="text-active"><%= flash[:notice] %></p>
   <% end %>
@@ -40,5 +41,6 @@
 	</table>
 	<div class="flex">
 		<%= link_to "注文履歴一覧", orders_path, class: "btn btn-primary ml2" %>
+	</div>
 	</div>
 </section>
