@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
   before_action :ensure_cart_items, only: [:new, :confirm, :create, :error]
 
   def new
-    @orders = Order.all
+    @shop = Shop.all
     @order = Order.new
   end
 
@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:minute, :time, :name, :payment_method)
+    params.require(:order).permit(:minute, :time, :name, :payment_method, :shop_id)
   end
 
   def ensure_cart_items
