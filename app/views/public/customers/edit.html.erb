@@ -1,42 +1,44 @@
 <section class="inner">
 	<div class="shop_footer">
-	<h2 class="section-ttl">会員情報編集</h2>
-	<%= form_for(@customer, url: update_information_path) do |f| %>
-		<%= render 'layouts/error_messages', resource: @customer %>
-		<table class="customer_info customer_form">
-			<thead>
-				<th></th>
-				<th></th>
-				<th></th>
-			</thead>
-			<tbody>
-				<tr>
-					<td>名前</td>
-					<td><%= f.label :first_name, "(姓)", class: "customer_name" %> <%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
-					<td><%= f.label :last_name, "(名)", class: "customer_name" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
-				</tr>
-				<tr>
-					<td><%= f.label :email, "メールアドレス" %></td>
-					<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@customer.email}" %></td>
-				</tr>
-				<tr>
-					<td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
-					<td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@customer.postal_code}", class: "jpostal_code" %></td>
-				</tr>
-				<tr>
-					<td><%= f.label :address, "住所(郵便番号から自動入力)" %></td>
-					<td colspan="2"><%= f.text_field :address, :placeholder =>"#{@customer.address}", class: "jpostal_address" %></td>
-				</tr>
-				<tr>
-					<td><%= f.label :telephone_number, "電話番号(ハイフンなし10or11桁)" %></td>
-					<td colspan="2"><%= f.text_field :telephone_number, :placeholder =>"#{@customer.telephone_number}" %></td>
-				</tr>
-				<tr>
-					<td colspan="2"><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></td>
-					<td><%= link_to "退会する", confirm_unsubscribe_path, class: "btn btn-danger" %></td>
-				</tr>
-			</tbody>
-		</table>
-	<% end %>
+		<div class="container">
+			<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+				<h2 class="section-ttl">会員情報編集</h2>
+				<%= form_for(@customer, url: update_information_path) do |f| %>
+					<%= render 'layouts/error_messages', resource: @customer %>
+					<table class="customer_info customer_form" align="center">
+						<tbody>
+							<tr>
+								<td>名前(名)</td>
+								<td><%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
+							</tr>
+							<tr>
+								<td>名前(姓)</td>
+								<td><%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
+							</tr>
+							<tr>
+								<td><%= f.label :email, "メールアドレス" %></td>
+								<td><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@customer.email}" %></td>
+							</tr>
+							<tr>
+								<td><%= f.label :postal_code, "郵便番号(7桁)" %></td>
+								<td><%= f.text_field :postal_code, :placeholder =>"#{@customer.postal_code}", class: "jpostal_code" %></td>
+							</tr>
+							<tr>
+								<td><%= f.label :address, "住所(郵便番号から自動入力)" %></td>
+								<td><%= f.text_field :address, :placeholder =>"#{@customer.address}", class: "jpostal_address" %></td>
+							</tr>
+							<tr>
+								<td><%= f.label :telephone_number, "電話番号(10or11桁)" %></td>
+								<td><%= f.text_field :telephone_number, :placeholder =>"#{@customer.telephone_number}" %></td>
+							</tr>
+							<tr>
+								<td><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></td>
+								<td><%= link_to "退会する", confirm_unsubscribe_path, class: "btn btn-danger" %></td>
+							</tr>
+						</tbody>
+					</table>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </section>

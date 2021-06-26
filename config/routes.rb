@@ -26,6 +26,12 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
+    get 'orders/confirm/error' => 'orders#error'
+    get 'order/confirm/index' => 'orders#confirm_html'
+    post 'order/confirm' => 'orders#confirm'
+    # get 'order/confirm' => 'orders#confirm'
+
+
     root 'items#top'
     get 'about' => 'homes#about', as: 'about'
 
@@ -39,8 +45,7 @@ Rails.application.routes.draw do
 
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
 
-    post 'orders/confirm' => 'orders#confirm'
-    get 'orders/confirm' => 'orders#error'
+
     get 'orders/complete' => 'orders#complete', as: 'complete'
 
     # resources :cart_items, only: [:create, :update, :destroy]
@@ -50,6 +55,7 @@ Rails.application.routes.draw do
     end
     resources :cart_items, only: [:index]
     resources :orders, only: [:new, :index, :create, :show]
+
     # resources :customers, only: [:edit, :update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

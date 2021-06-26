@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
   before_action :ensure_cart_items, only: [:new, :confirm, :create, :error]
 
   def new
-    @shop = Shop.all
+    @shops = Shop.all
     @order = Order.new
   end
 
@@ -11,15 +11,23 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
   end
 
+  def confirm_html
+    @order = params[:order]
+  end
+
   def error
   end
 
   def create
     @order = current_customer.orders.new(order_params)
-    if @order.save
+    @order.total_payment = @cart_items.sum(&:subtotal)
+    if  @order.save
+      @order.create_order_details(current_customer)
       current_customer.cart_items.destroy_all
       redirect_to complete_path
     else
+      @shops = Shop.all
+      @order = Order.new
       render :new
     end
   end
@@ -33,13 +41,13 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = current_customer.orders.find(params[:id])
-    # @order_details = @order.order_details.includes(:item)
+    @order_details = @order.order_details.includes(:item)
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:minute, :time, :name, :payment_method, :shop_id)
+    params.require(:order).permit(:minute, :time, :payment_method, :shop_id, :total_payment)
   end
 
   def ensure_cart_items

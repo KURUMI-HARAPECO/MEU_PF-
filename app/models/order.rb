@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   has_many :order_details
   has_many :items, through: :order_details
 
-  validates :name, presence: true
+
   validates :payment_method, presence: true
   validates :time, presence: true
   validates :minute, presence: true
@@ -34,6 +34,7 @@ class Order < ApplicationRecord
       cart_items.each do |cart_item|
         item = cart_item.item
         OrderDetail.create!(
+          shop_id: id,
           order_id: id,
           item_id: item.id,
           price: item.with_tax_price,
