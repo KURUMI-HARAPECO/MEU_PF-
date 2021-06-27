@@ -2,9 +2,6 @@
 	<div class="shop_footer">
 		<div class="container">
 			<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-			  <% if flash[:notice] %>
-			    <p class="text-active"><%= flash[:notice] %></p>
-			  <% end %>
 				<h2 class="section-ttl">マイページ</h2>
 				<h3>
 					登録情報
@@ -13,9 +10,12 @@
 				</h3>
 				<table class="customer_info mb3"  align="center">
 					<tr>
-						<td>名前</td>
-						<td>(姓) <%= @customer.first_name %></td>
-						<td>(名) <%= @customer.last_name %></td>
+						<td>名前(姓)</td>
+						<td><%= @customer.first_name %></td>
+					</tr>
+					<tr>
+						<td>名前(名)</td>
+						<td><%= @customer.last_name %></td>
 					</tr>
 					<tr>
 						<td>メールアドレス</td>

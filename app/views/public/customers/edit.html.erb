@@ -13,12 +13,12 @@
 					<table class="customer_info customer_form" align="center">
 						<tbody>
 							<tr>
-								<td>名前(名)</td>
-								<td><%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
-							</tr>
-							<tr>
 								<td>名前(姓)</td>
 								<td><%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
+							</tr>
+							<tr>
+								<td>名前(名)</td>
+								<td><%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
 							</tr>
 							<tr>
 								<td><%= f.label :email, "メールアドレス" %></td>

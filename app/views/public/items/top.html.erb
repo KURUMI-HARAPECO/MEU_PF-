@@ -5,9 +5,16 @@
         <h1 class="display-4 font-weight-normal">ようこそ<br>MEUへ!</h1>
         <p class="lead font-weight-normal">
           このサイトは、ハンバーガー販売のECサイトになります。<br>
-  				会員でない方も商品の閲覧はできますが、<br>
+          <% if customer_signed_in? %>
+          <div class="w-100 h-50">
+          <img src="<%= asset_path("party_cracker_kamifubuki.png") %>" width="100" height="100" class="left" />
+          皆様のご好評により0周年！
+  				<img src="<%= asset_path("party_cracker_kamifubuki.1.png") %>" width="100" height="100" class="right" /></p></p>
+          <% else %>
+  				<p class="lead font-weight-normal">会員でない方も商品の閲覧はできますが、<br>
   				購入には会員登録が必要になります。</p>
         <%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-secondary" %>
+        <% end %>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>

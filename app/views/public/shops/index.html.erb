@@ -8,7 +8,8 @@
           <div class="map column">
               <h2>日本地図のどこかをクリックしてください</h2>
               <div class="map_japan">
-                  <img src="/assets/nihonchizu_area.png" usemap="#ImageMap" alt="" />
+                <!--画像の場所はデプロイ後に変わるためasset_path(image_url)で表示したほうがデプロイ後も表示されるのでよい-->
+                  <img src="<%= asset_path("nihonchizu_area.png") %>" usemap="#ImageMap" alt="" />
                   <map name="ImageMap">
                       <!--北海道-->
                         <area shape="poly" coords="289,17,284,59,276,68,261,62,264,73,263,79,250,85,260,99,258,109,266,110,268,103,284,104,285,97,267,95,268,83,280,81,282,87,293,79,328,100,337,80,368,72,360,58,363,39,344,52,315,36,289,13,301,387" href="#" alt="hokkaido" />
