@@ -7,8 +7,6 @@ class Shop < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :telephone_number, presence: true
-  validates :time, presence: true
-  validates :minute, presence: true
 
 
   scope :where_genre_active, -> { joins(:shop_genre).where(shop_genres: { is_active: true }) }
