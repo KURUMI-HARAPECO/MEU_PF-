@@ -22,8 +22,11 @@
             <h4 class="my-0 font-weight-normal"><%= genre.name %></h4>
           </div>
           <div class="card-body">
-            <img src="/assets/watermark.jpg" alt="" width="200" height="200">
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary"><%= link_to genre.name, items_path(genre_id: genre.id) %></button>
+            <%= link_to items_path(genre_id: genre.id) do %>
+              <% @item.each do |item| %>
+                <%= attachment_image_tag item, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       <% end %>
