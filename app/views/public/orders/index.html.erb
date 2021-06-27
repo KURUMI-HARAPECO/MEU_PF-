@@ -19,7 +19,9 @@
 								<td>
 									<%= order.shop.name %>
 								</td>
-								<td class="text-center"><%= order.status_i18n %></td>
+								<% order.order_details.includes(:item).each do |order_detail| %>
+								<td class="text-center"><%= order_detail.subtotal %>円</td>
+								<% end %>
 								<td class="text-center">
 									<%= link_to "表示する", order_path(order), class: "btn btn-primary" %>
 								</td>

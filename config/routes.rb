@@ -36,9 +36,6 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: 'about'
 
     get 'customers/mypage' => 'customers#show', as: 'mypage'
-    get 'customers/editt' => 'customers#edit', as: 'edit_information'
-    patch 'customers' => 'customers#update', as: 'update_information'
-    put 'customers/information' => 'customers#update'
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw_customer'
     put 'customers/withdraw' => 'customers#withdraw'
@@ -48,15 +45,13 @@ Rails.application.routes.draw do
 
     get 'orders/complete' => 'orders#complete', as: 'complete'
 
-    # resources :cart_items, only: [:create, :update, :destroy]
+    resources :customers, only: [:edit, :update]
     resources :shops, only: [:index, :show, :create, :update]
     resources :items, only: [:top,:index, :show] do
       resources :cart_items, only: [:create, :update, :destroy]
     end
     resources :cart_items, only: [:index]
     resources :orders, only: [:new, :index, :create, :show]
-
-    # resources :customers, only: [:edit, :update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

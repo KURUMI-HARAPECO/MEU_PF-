@@ -20,9 +20,9 @@
 					<h3>予約店舗</h3>
 			    <%= f.label :shop_id, "店舗名" %>
 			  	<%= f.select :shop_id, @shops.map{ |shop| [shop.name, shop.id] } %>
-					<%= f.select :time, [*(10..20)], include_blank: "-    " %>
+					<%= f.select :time, [*(10..20)] %>
 					<%= f.label :time, "時" %>
-					<%= f.select :minute, [["00", 0],["10", 10], ["20", 20], ["30", 30], ["40", 40], ["50", 50]], include_blank: "-    " %>
+					<%= f.select :minute, [["00", 00],["10", 10], ["20", 20], ["30", 30], ["40", 40], ["50", 50]] %>
 					<%= f.label :minute, "分" %>
 				  <p>時間を選択して下さい。</p>
 					<%= f.submit "注文確認画面に進む", class: "btn btn-primary submit_to_confirm_order" %>

@@ -1,4 +1,12 @@
 <section class="inner">
-	<h2 class="section-ttl"><%= @shop.name %>の編集</h2>
-  <%= render 'form', shop: @shop, url: admin_shop_path(@shop), submit: '更新' %>
+	<div class="container">
+		<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+			<div class="shop_footer">
+
+    	<h2 class="section-ttl"><%= @shop.name %>の編集</h2>
+      <%= render 'form', shop: @shop, url: admin_shop_path(@shop), submit: '更新' %>
+
+			</div>
+   	</div>
+	</div>
 </section>
