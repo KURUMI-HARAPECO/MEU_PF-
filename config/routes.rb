@@ -29,7 +29,6 @@ Rails.application.routes.draw do
     get 'orders/confirm/error' => 'orders#error'
     get 'order/confirm/index' => 'orders#confirm_html'
     post 'order/confirm' => 'orders#confirm'
-    # get 'order/confirm' => 'orders#confirm'
 
 
     root 'items#top'

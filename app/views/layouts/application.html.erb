@@ -8,44 +8,41 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!--<link href="product.css" rel="stylesheet">-->
   </head>
 
   <body>
-
     <header>
       <nav class="site-header sticky-top py-1 ">
         <div class="container d-flex flex-column flex-md-row justify-content-between  ">
-          <%# binding.pry %>
           <% if admin_signed_in? %>
-                  <%= link_to 'MEU', root_path, class: "text-dark" %>
-                  <%= link_to '商品一覧', admin_items_path, class: "text-dark" %>
-                  <%= link_to '会員一覧', admin_customers_path, class: "text-dark" %>
-                  <%= link_to '注文履歴一覧', admin_orders_path, class: "text-dark" %>
-                  <%= link_to '商品ジャンル管理', admin_genres_path, class: "text-dark" %>
-                  <%= link_to '店舗一覧', admin_shops_path, class: "text-dark" %>
-                  <%= link_to '店舗ジャンル管理', admin_shop_genres_path, class: "text-dark" %>
-                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
-                  <%= form_tag(admin_search_path, method: :get) do %>
-                    <%= text_field_tag "search[content]", "", :placeholder =>"会員: 姓,名 / 商品: 商品名" %>
-                    <%= select_tag "search[model]", options_for_select({ "会員" => "customer", "商品" => "item" }) %>
-                    <%= select_tag "search[method]", options_for_select({ "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "perfect" }) %>
-                    <%= submit_tag '検索', class: "btn btn-primary" %>
-                  <% end %>
+            <%= link_to 'MEU', root_path, class: "text-dark" %>
+            <%= link_to '商品一覧', admin_items_path, class: "text-dark" %>
+            <%= link_to '会員一覧', admin_customers_path, class: "text-dark" %>
+            <%= link_to '注文履歴一覧', admin_orders_path, class: "text-dark" %>
+            <%= link_to '商品ジャンル管理', admin_genres_path, class: "text-dark" %>
+            <%= link_to '店舗一覧', admin_shops_path, class: "text-dark" %>
+            <%= link_to '店舗ジャンル管理', admin_shop_genres_path, class: "text-dark" %>
+            <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+            <%= form_tag(admin_search_path, method: :get) do %>
+              <%= text_field_tag "search[content]", "", :placeholder =>"会員: 姓,名 / 商品: 商品名 / 店舗: 店舗名" %>
+              <%= select_tag "search[model]", options_for_select({ "会員" => "customer", "商品" => "item", "店舗" => "shop" }) %>
+              <%= select_tag "search[method]", options_for_select({ "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "perfect" }) %>
+              <%= submit_tag '検索', class: "btn btn-primary" %>
+            <% end %>
           <% elsif customer_signed_in? %>
-                  <%= link_to 'MEU', root_path, class: "text-dark" %>
-                  <p>ようこそ、<%= current_customer.full_name %>さん!</p>
-                  <%= link_to 'マイページ', mypage_path, class: "text-dark" %>
-                  <%= link_to '商品一覧', items_path, class: "text-dark" %>
-                  <%= link_to '店舗一覧', shops_path, class: "text-dark" %>
-                  <%= link_to 'カート', cart_items_path, class: "text-dark" %>
-                  <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "text-dark" %>
+            <%= link_to 'MEU', root_path, class: "text-dark" %>
+            <p>ようこそ、<%= current_customer.full_name %>さん!</p>
+            <%= link_to 'マイページ', mypage_path, class: "text-dark" %>
+            <%= link_to '商品一覧', items_path, class: "text-dark" %>
+            <%= link_to '店舗一覧', shops_path, class: "text-dark" %>
+            <%= link_to 'カート', cart_items_path, class: "text-dark" %>
+            <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "text-dark" %>
           <% else %>
-                  <%= link_to 'MEU', root_path, class: "text-dark"%>
-                  <%= link_to '商品一覧', items_path, class: "text-dark" %>
-                  <%= link_to '店舗一覧', shops_path, class: "text-dark" %>
-                  <%= link_to '新規登録', new_customer_registration_path, class: "text-dark" %>
-                  <%= link_to 'ログイン', new_customer_session_path, class: "text-dark" %>
+            <%= link_to 'MEU', root_path, class: "text-dark"%>
+            <%= link_to '商品一覧', items_path, class: "text-dark" %>
+            <%= link_to '店舗一覧', shops_path, class: "text-dark" %>
+            <%= link_to '新規登録', new_customer_registration_path, class: "text-dark" %>
+            <%= link_to 'ログイン', new_customer_session_path, class: "text-dark" %>
           <% end %>
         </div>
       </nav>
@@ -76,5 +73,4 @@
       </div>
     </footer>
   </body>
-
 </html>

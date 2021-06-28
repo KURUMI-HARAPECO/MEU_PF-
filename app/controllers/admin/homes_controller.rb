@@ -18,23 +18,23 @@ class Admin::HomesController < ApplicationController
     if model == 'customer'
       if method == 'forward'
         Customer.where(
-          'last_name LIKE ? OR first_name LIKE? OR last_name_kana LIKE? OR first_name_kana LIKE?',
-          "#{content}%", "#{content}%", "#{content}%", "#{content}%"
+          'last_name LIKE ? OR first_name LIKE?',
+          "#{content}%", "#{content}%"
         )
       elsif method == 'backward'
         Customer.where(
-          'last_name LIKE ? OR first_name LIKE? OR last_name_kana LIKE? OR first_name_kana LIKE?',
-          "%#{content}", "%#{content}", "%#{content}", "%#{content}"
+          'last_name LIKE ? OR first_name LIKE?',
+          "%#{content}", "%#{content}"
         )
       elsif method == 'perfect'
         Customer.where(
-          'last_name = ? OR first_name = ? OR last_name_kana = ? OR first_name_kana = ?',
-          content, content, content, content
+          'last_name = ? OR first_name = ?',
+          content, content
         )
       else # partial
         Customer.where(
-          'last_name LIKE ? OR first_name LIKE? OR last_name_kana LIKE? OR first_name_kana LIKE?',
-          "%#{content}%", "%#{content}%", "%#{content}%", "%#{content}%"
+          'last_name LIKE ? OR first_name LIKE?',
+          "%#{content}%", "%#{content}%"
         )
       end
     elsif model == 'item'
@@ -47,6 +47,18 @@ class Admin::HomesController < ApplicationController
       else # partial
         Item.where('name LIKE ?', '%' + content + '%').includes(:genre)
       end
+
+    elsif model == 'shop'
+      if method == 'forward'
+        Shop.where('name LIKE ?', content + '%').includes(:shop_genre)
+      elsif method == 'backward'
+        Shop.where('name LIKE ?', '%' + content).includes(:shop_genre)
+      elsif method == 'perfect'
+        Shop.where(name: content).includes(:shop_genre)
+      else # partial
+        Shop.where('name LIKE ?', '%' + content + '%').includes(:shop_genre)
+      end
+
     else
       [] # 空配列を返す
     end

@@ -3,5 +3,5 @@ class ShopGenre < ApplicationRecord
 
   scope :only_active, -> { where(is_active: true) }
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
 end

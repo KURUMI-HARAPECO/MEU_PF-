@@ -40,7 +40,6 @@
               		<% end %>
               		<% if @shops.first %>
               			<%= render 'admin/shops/index', shops: @shops %>
-              			<%= paginate @shops %>
               		<% else %>
               			<h3>対応する店舗はありませんでした。</h3>
               		<% end %>

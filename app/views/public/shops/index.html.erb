@@ -32,7 +32,6 @@
         </div>
         <div class="list column">
             <h2 class="text-white">以下に県名のリストが表示されます↓↓↓</h2>
-
             <% @genres.each do |genre| %>
               <ul class="<%= genre.komoziname %>">
                 <li><h4><%= genre.name %></h4></li>
@@ -41,7 +40,6 @@
               <% end %>
               </ul>
             <% end %>
-
         </div>
     </div>
     <script>
@@ -55,6 +53,5 @@
         $('.' + $(this).attr('alt')).show();
     });
     </script>
-
   </section>
 </div>
