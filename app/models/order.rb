@@ -8,12 +8,8 @@ class Order < ApplicationRecord
   validates :payment_method, presence: true
   validates :time, presence: true
   validates :minute, presence: true
-  # validates :grand_total, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
-
-  # scope :ordered_today, -> { where(created_at: Constants::BEGINNING_OF_TODAY...Constants::BEGINNING_OF_TOMORROW) }
 
   enum payment_method: { credit_card: 0, transfer: 1 }
-  enum status: { waiting_deposit: 0, confirm_deposit: 1, in_production: 2, preparing_shipment: 3, shipped: 4 }
 
   def get_shipping_informations_from(resource)
     class_name = resource.class.name

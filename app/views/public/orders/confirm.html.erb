@@ -2,7 +2,6 @@
 	<div class="shop_footer">
 		<div class="container">
 			<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-
 				<h2 class="section-ttl">注文情報確認</h2>
 				<div class="flex">
 					<table class="confirm_cart_items mr2 mb3 has_border">
@@ -51,7 +50,7 @@
 						<%= f.hidden_field :payment_method, value: @order.payment_method %>
 					</div>
 					<div class="field">
-						<label>お届け先</label>
+						<label>受け取り店舗</label>
 						<p><%= @order.shop.name %> <%= @order.time %>時<%= @order.minute %>分</p>
 						<%= f.hidden_field :minute, value: @order.minute %>
 						<%= f.hidden_field :time, value: @order.time %>
@@ -61,7 +60,6 @@
 						<%= f.submit "注文を確定する", class: "btn btn-primary submit_to_create_order" %>
 					</div>
 				<% end %>
-
 			</div>
 		</div>
 	</div>

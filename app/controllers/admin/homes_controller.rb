@@ -3,6 +3,7 @@ class Admin::HomesController < ApplicationController
 
   def top
     @count = Order.count
+    @order = Order.where("created_at >= ?", Date.today).count
   end
 
   def search
