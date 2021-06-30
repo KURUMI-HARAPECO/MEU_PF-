@@ -2,7 +2,6 @@
 		<div class="container">
 		<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
 			<div class="shop_footer">
-
 				<h2 class="section-ttl">
 					<% if params[:customer_id] %>
 						<%= @customer.full_name %>さんの注文履歴一覧
@@ -33,7 +32,6 @@
 					</tbody>
 				</table>
 				<%= paginate @orders %>
-
 			</div>
    	</div>
 	</div>

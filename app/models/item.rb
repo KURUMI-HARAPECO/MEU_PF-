@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
+  # 数値のみを許可する→numericality
+  #greater_than_or_equal_to => 0で最小値を0に
   attachment :image
 
   scope :where_genre_active, -> { joins(:genre).where(genres: { is_active: true }) }

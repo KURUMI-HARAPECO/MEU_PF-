@@ -13,6 +13,7 @@ class Customer < ApplicationRecord
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :email, presence: true, uniqueness: true
+  # 同一データは一つのみ許可する→uniqueness
   validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
   validates :address, presence: true
   validates :telephone_number, presence: true, format: { with: /\A\d{10,11}\z/ }

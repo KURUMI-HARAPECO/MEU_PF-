@@ -10,6 +10,7 @@ class Order < ApplicationRecord
   validates :minute, presence: true
 
   enum payment_method: { credit_card: 0, transfer: 1 }
+  # payment_method => 0ならcredit_card,payment_method => 1ならtransferと表示
 
   def get_shipping_informations_from(resource)
     class_name = resource.class.name

@@ -1,6 +1,6 @@
 <section class="wrapper flex">
 	<div class="content">
-  	<div class="position-relative overflow-hidden p-3 p-md-5 mb-3 text-center bg-light">
+  	<div class="position-relative overflow-hidden p-3 p-md-5 mb-3 text-center">
       <div class="col-md-5 p-lg-5 mx-auto my-5">
         <h1 class="display-4 font-weight-normal">ようこそ<br>MEUへ!</h1>
         <p class="lead font-weight-normal">
@@ -13,12 +13,21 @@
           <% else %>
   				<p class="lead font-weight-normal">会員でない方も商品の閲覧はできますが、<br>
   				購入には会員登録が必要になります。</p>
-        <%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-secondary" %>
+        <%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-secondary", class: "gradient1" %>
         <% end %>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
+  </div>
+
+  <div>
+    <ul class="slider">
+      <li><img src="<%= asset_path("photo-1502741224143-90386d7f8c82.jpg") %>" alt=""></li>
+      <li><img src="<%= asset_path("fried-chicken-690039_960_720.jpg") %>" alt=""></li>
+      <li><img src="<%= asset_path("photo-1594212699903-ec8a3eca50f5.jpg") %>" alt=""></li>
+      <li><img src="<%= asset_path("photo-1518977676601-b53f82aba655.jpg") %>" alt=""></li>
+    </ul>
   </div>
 
   <div class="container">
