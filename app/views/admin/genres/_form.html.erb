@@ -2,6 +2,13 @@
 	<%= render 'layouts/error_messages', resource: genre %>
 	<%= f.label :name, "ジャンル名:" %>
 	<%= f.text_field :name %>
+<div>
+	<%= f.label :image, "画像" %>
+	<div class="image_field">
+		<%= attachment_image_tag genre, :genres_image_id, format: "jpeg", id: "img_prev", fallback: "no_image.jpg", size: "100x100", class: "admin_item_image" %>
+		<span class="btn btn-file btn-info"><%= f.attachment_field :image %>画像選択</span>
+	</div>
+</div>
 	<%= f.radio_button :is_active, true %>
 	<%= f.label :is_active, "有効", class: "text-active" %>
 	<%= f.radio_button :is_active, false %>

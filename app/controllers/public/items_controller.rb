@@ -3,6 +3,7 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.only_active.includes(:items)
     @items = Item.recommended
     @item = Item.page(params[:page]).per(4).order(created_at: :desc)
+    # @genreitem = Item.find(params[:id])
   end
 
   def index

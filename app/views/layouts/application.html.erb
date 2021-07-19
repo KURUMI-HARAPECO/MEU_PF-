@@ -12,7 +12,7 @@
     <!--==============(波紋)レイアウトを制御する独自のCSSを読み込み===============-->
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-1-13/css/7-1-13.css">
-    <!--==============(スライド)レイアウトを制御する独自のCSSを読み込み===============-->
+    <!--==============(スライド)レイアウトを制御する独自のCSSを読み込み(TOP画面)===============-->
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/css/6-1-7.css">
@@ -44,7 +44,7 @@
             <% end %></li>
           <% elsif customer_signed_in? %>
             <li class="gnav__menu__item"><%= link_to 'MEU', root_path, class: "btnripple3" %></li>
-            <li class="gnav__menu__item"><p>ようこそ、<%= current_customer.full_name %>さん!</p></li>
+            <li class="gnav__menu__item">ようこそ、<%= current_customer.full_name %>さん!</li>
             <li class="gnav__menu__item"><%= link_to 'マイページ', mypage_path, class: "btnripple3" %></li>
             <li class="gnav__menu__item"><%= link_to '商品一覧', items_path, class: "btnripple3" %></li>
             <li class="gnav__menu__item"><%= link_to '店舗一覧', shops_path, data: {"turbolinks" => false}, class: "btnripple3" %></li>
@@ -73,7 +73,7 @@
       </div>
     </footer>
 
-    <!--==============(スライド)レイアウトを制御する独自のCSSを読み込み===============-->
+    <!--==============(スライド)レイアウトを制御する独自のCSSを読み込み(地図)===============-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/js/6-1-7.js"></script>

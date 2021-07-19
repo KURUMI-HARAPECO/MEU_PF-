@@ -39,9 +39,7 @@
           </div>
           <div class="card-body">
             <%= link_to items_path(genre_id: genre.id) do %>
-              <% @item.each do |item| %>
-                <%= attachment_image_tag item, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %>
-              <% end %>
+                <%= attachment_image_tag genre, :genres_image_id, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %>
             <% end %>
           </div>
         </div>
@@ -50,7 +48,7 @@
   </div>
 
   <div class="container">
-    <h1 class="bg-info text-white">新着商品</h1>
+    <h1>新着商品</h1>
     <div class="card-deck mb-3 text-center">
       <div class="row">
           <% @item.each do |item| %>
@@ -58,10 +56,6 @@
               <div class="list-box ml-5">
                 <%= link_to item_path(item) do %>
                 <td><%= attachment_image_tag item, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %></td>
-                <div class="list-comment">
-                  <p><%= item.name %></p>
-                  <p><%= item.with_tax_price %>円</p>
-                </div>
                 <% end %>
               </div>
             </tr>
@@ -71,7 +65,7 @@
   </div>
 
   <div class="container">
-    <h1 class="bg-warning text-white">オススメ商品</h1>
+    <h1>オススメ商品</h1>
     <div class="card-deck mb-3 text-center">
       <div class="row">
           <% @items.each do |item| %>
@@ -79,10 +73,6 @@
               <div class="list-box ml-5">
                 <%= link_to item_path(item) do %>
                 <td><%= attachment_image_tag item, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg" %></td>
-                <div class="list-comment">
-                  <p><%= item.name %></p>
-                  <p><%= item.with_tax_price %>円</p>
-                </div>
                 <% end %>
               </div>
             </tr>

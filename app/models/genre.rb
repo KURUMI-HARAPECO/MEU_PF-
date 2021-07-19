@@ -4,4 +4,5 @@ class Genre < ApplicationRecord
   scope :only_active, -> { where(is_active: true) }
 
   validates :name, presence: true, uniqueness: true
+  attachment :image
 end
